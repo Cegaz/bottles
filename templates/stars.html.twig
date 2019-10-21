@@ -1,0 +1,7 @@
+{% if nb == 0 %}
+	<i class="far fa-star"></i>
+{% else %}
+	{% for i in 1..nb %}
+		<i class="fas fa-star"></i>
+	{% endfor %}
+{% endif %}

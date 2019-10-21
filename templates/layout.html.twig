@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}À Boire !{% endblock %}
+
+{% block body %}
+
+<div class="container-fluid">
+
+    {% block navbar %}
+
+    <div class="row bg-grey">
+        <div class="col-2 d-flex justify-content-around align-items-center">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-bars xx-large purple"></i>
+            </a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">
+                    <span data-toggle="modal" data-target="#modalNewBottle"
+                          onclick="newWine()">Nouveau vin</span>
+                </a>
+
+                {% if app.request.attributes.get('_route') == 'historic' %}
+                    <a class="dropdown-item" href="/vins/liste">Vins à boire</a>
+                {% else %}
+                    <a class="dropdown-item" href="/vins/historique">Vins déjà bus</a>
+                {% endif %}
+            </div>
+        </div>
+        <div class="offset-1 col-9">
+            {% include 'filters.html.twig' %}
+        </div>
+    </div>
+
+    {% include 'modalNewBottle.html.twig' %}
+    {% include 'modalEditWine.html.twig' %}
+
+    {% endblock %}
+
+    {% block content %}
+    {% endblock %}
+
+</div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/app.js') }}"></script>
+{% endblock %}

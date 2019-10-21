@@ -1,0 +1,88 @@
+$lightGrey: #f2f0e9;
+$grey: #d1c6af;
+$purple: #9a0f4a;
+$darkPurple: #3f0e40;
+$pink: lightpink;
+
+$theme-colors: (
+  "primary": $purple,
+  "danger": #ff4136
+);
+
+@import '../../node_modules/bootstrap/scss/bootstrap';
+
+$regularFont: 'Open Sans', sans-serif;
+$funnyFont: 'Mansalva', cursive;
+
+body {
+  font-family: $regularFont;
+  background-image: url("/img/grapes.jpg");
+//  background-color: $purple;
+}
+
+//  COLORS
+
+.bg-grey {
+  background-color: $grey;
+}
+
+.dark-purple {
+  color: $darkPurple;
+}
+
+.purple {
+  color: $purple;
+}
+
+.pink {
+  color: $pink;
+}
+
+.white {
+  color: #f2e5cb;
+}
+
+//  SIZES
+.xx-large {
+  font-size: xx-large;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+#form_dluo_day {
+  display: none;
+}
+
+
+// FORMS
+.checkbox-checked {
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px grey;
+}
+
+i {
+  &.big-icon {
+    font-size: 1.8rem;
+  }
+}
+
+// FILTERS
+.filters {
+  .form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+  }
+}
+// TABLES
+table {
+  background-color: $lightGrey;
+  & > tbody {
+    & td:first-child::before {
+        background-color: $purple !important;
+    }
+  }	
+}
