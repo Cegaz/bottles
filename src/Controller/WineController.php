@@ -20,11 +20,13 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Validator\Constraints\Json;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * Class WineController
  * @package App\Controller
  * @Route("/vins")
+ * @IsGranted("ROLE_ACTIVE_USER")
  */
 class WineController extends AbstractController
 {

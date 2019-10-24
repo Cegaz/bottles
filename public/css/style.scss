@@ -17,7 +17,19 @@ $funnyFont: 'Mansalva', cursive;
 body {
   font-family: $regularFont;
   background-image: url("/img/grapes.jpg");
-//  background-color: $purple;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  &:hover {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+.bold {
+  font-weight: bold;
 }
 
 //  COLORS
@@ -85,4 +97,13 @@ table {
         background-color: $purple !important;
     }
   }	
+}
+
+// OTHER
+.login-card {
+  width: 40%;
+  margin: 10% auto auto;
+  background-color: $grey;
+  border-radius: 6px;
+  padding: 8px;
 }

@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="login-card">
+    {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+
+    <div class="form-group">
+        <label>pseudo</label>
+        {{ form_widget(form.username) }}
+    </div>
+    <div class="form-group">
+        <label>email</label>
+        {{ form_widget(form.email) }}
+    </div>
+    <div class="form-group">
+        <label>mot de passe</label>
+        {{ form_widget(form.plainPassword.first) }}
+    </div>
+    <div class="form-group">
+        <label>confirmation du mot de passe</label>
+        {{ form_widget(form.plainPassword.second) }}
+    </div>
+    <div class="d-flex justify-content-end">
+        <input type="submit" value="Enregistrer" class="btn btn-primary">
+    </div>
+    {{ form_end(form) }}
+</div>
+{% endblock %}
