@@ -73,7 +73,6 @@ class WineController extends AbstractController
                 'dluo' => $wine->getDluo(),
                 'quantity' => $this->renderView('bottlesQuantity.html.twig', [
                     'nb' => $wine->getNbBottles() ?? 1,
-                    'id' => $wine->getId()
                 ]),
                 'rate' => $this->renderView('stars.html.twig', [
                     'nb' => $wine->getRate()
@@ -275,7 +274,34 @@ class WineController extends AbstractController
 
         $html = $this->renderView('bottlesQuantity.html.twig', [
             'nb' => $newQuantity,
-            'id' => $id
+        ]);
+
+        return new JsonResponse($html);
+    }
+
+    /**
+     * @Route("/plus-etoile", name="plus-one-star")
+     * @param Request $request
+     * @return JsonResponse|RedirectResponse
+     */
+    public function plusOneStar(Request $request)
+    {
+        $postRequest = $request->request;
+        $id = $postRequest->get('id');
+        $plus = $postRequest->get('plus');
+
+        $wine = $this->wineRepository->find($id);
+
+        $newRate = $plus ? $wine->getRate() + 1 : $wine->getRate() - 1;
+
+        if ($newRate >= 0 && $newRate <= 3) {
+            $wine->setRate($newRate);
+            $em = $this->getDoctrine()->getManager();
+            $em->flush();
+        }
+
+        $html = $this->renderView('stars.html.twig', [
+            'nb' => $newRate,
         ]);
 
         return new JsonResponse($html);

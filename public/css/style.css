@@ -7592,7 +7592,8 @@ a.text-dark:hover, a.text-dark:focus {
     border-color: #dee2e6; } }
 body {
   font-family: "Open Sans", sans-serif;
-  background-image: url("/img/grapes.jpg"); }
+  background-image: url("/img/grapes.jpg");
+  background-repeat: no-repeat; }
 
 a {
   text-decoration: none;

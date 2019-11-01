@@ -1,7 +1,10 @@
-{% if nb == 0 %}
-	<i class="far fa-star"></i>
-{% else %}
+{% if nb > 0 %}
 	{% for i in 1..nb %}
-		<i class="fas fa-star"></i>
+		<i class="fas fa-star" onclick="addRemoveStar($(this), 0)"></i>
+	{% endfor %}
+{% endif %}
+{% if nb < 3 %}
+	{% for j in 1..3-nb %}
+		<i class="far fa-star" onclick="addRemoveStar($(this), 1)"></i>
 	{% endfor %}
 {% endif %}

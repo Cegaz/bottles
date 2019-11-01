@@ -1,5 +1,10 @@
- let tableWines = $('#table_bottles').DataTable({
+$(function() {
+    initFilters(tableWines);
+});
+
+let tableWines = $('#table_bottles').DataTable({
     ajax: '/vins/datatable',
+    rowId: 'id',
     language: {
        url: "/js/dataTableLanguage.json",
     },
@@ -22,13 +27,18 @@
     ]
  });
 
-function plusMinusBottle($elem, wineId, plusAction) {
-    $.post('/vins/plus-bouteille', {id: wineId, plus: plusAction}, data => {
+function plusMinusBottle($elem, plusAction) {
+    let id = tableWines.row($elem.closest('tr')).id();
+    $.post('/vins/plus-bouteille', {id: id, plus: plusAction}, data => {
         $elem.closest('.bottles-quantity').html(data);
         tableWines.ajax.reload();
     });
 }
 
- $(function() {
-     initFilters(tableWines);
- });
+function addRemoveStar($star, plusAction) {
+    let id = tableWines.row($star.closest('tr')).id();
+    $.post('/vins/plus-etoile', {id: id, plus: plusAction}, data => {
+        $star.closest('td').html(data);
+        tableWines.ajax.reload();
+    });
+}

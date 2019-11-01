@@ -17,6 +17,7 @@ $funnyFont: 'Mansalva', cursive;
 body {
   font-family: $regularFont;
   background-image: url("/img/grapes.jpg");
+  background-repeat: no-repeat;
 }
 
 a {
