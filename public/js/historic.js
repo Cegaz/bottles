@@ -1,5 +1,6 @@
-let tableHistoric = $('#table_historic').DataTable({
+let table = $('#table_historic').DataTable({
     ajax: '/vins/historique/datatable',
+    rowId: 'id',
     language: {
        url: "/js/dataTableLanguage.json",
     },
@@ -20,5 +21,5 @@ let tableHistoric = $('#table_historic').DataTable({
 });
 
 $(function() {
-    initFilters(tableHistoric);
+    initFilters(table);
 });

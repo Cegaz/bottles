@@ -44,3 +44,11 @@ function initFilters(table) {
         applyFilters(table);
     });
 }
+
+function addRemoveStar($star, plusAction) {
+    let id = table.row($star.closest('tr')).id();
+    $.post('/vins/plus-etoile', {id: id, plus: plusAction}, data => {
+        $star.closest('td').html(data);
+        table.ajax.reload();
+    });
+}
