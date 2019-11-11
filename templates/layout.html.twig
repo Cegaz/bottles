@@ -7,9 +7,8 @@
 <div class="container-fluid">
 
     {% block navbar %}
-
     <div class="row bg-grey">
-        <div class="col-2 d-flex justify-content-around align-items-center">
+        <div class="col-1 d-flex justify-content-around align-items-center">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-bars xx-large purple"></i>
             </a>
@@ -24,12 +23,16 @@
                 {% else %}
                     <a class="dropdown-item" href="/vins/historique">Vins déjà bus</a>
                 {% endif %}
-
-                <a class="dropdown-item" href="/logout">Déconnexion</a>
             </div>
         </div>
-        <div class="offset-1 col-9">
+        <div class="offset-1 col-8">
             {% include 'filters.html.twig' %}
+        </div>
+        <div class="offset-1 col-1 mt-auto mb-auto">
+            <span class="text-white align-middle">{{ app.user.username }}</span><br>
+            <a href="/logout">
+                <i class='fas fa-sign-out-alt big-icon'></i>
+            </a>
         </div>
     </div>
 
