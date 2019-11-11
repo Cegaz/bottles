@@ -26,7 +26,7 @@ function newWine() {
 }
 
 function editWine(wineId) {
-    $.post('/vins/modifier', {id: wineId}, data => {
+    $.get('/vins/modifier/' + wineId, data => {
         $('#modalEditWine').find('.modal-content').html(data);
     });
 }
@@ -46,7 +46,15 @@ function initFilters(table) {
 }
 
 function addRemoveStar($star, plusAction) {
-    let id = table.row($star.closest('tr')).id();
+    let table = $star.closest('table').DataTable();
+
+      // pour résoudre pb modif DOM datatable responsive
+    let $tr = $star.closest('tr');
+    if ($tr.hasClass('child')) {
+      $tr = $tr.prev();
+    }
+    let id = table.row($tr).id();
+
     $.post('/vins/plus-etoile', {id: id, plus: plusAction}, data => {
         $star.closest('td').html(data);
         table.ajax.reload();

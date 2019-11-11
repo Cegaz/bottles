@@ -1,8 +1,8 @@
 $(function() {
-    initFilters(table);
+    initFilters(tableWines);
 });
 
-let table = $('#table_bottles').DataTable({
+let tableWines = $('#table_bottles').DataTable({
     ajax: '/vins/datatable',
     rowId: 'id',
     language: {
@@ -28,9 +28,15 @@ let table = $('#table_bottles').DataTable({
  });
 
 function plusMinusBottle($elem, plusAction) {
-    let id = table.row($elem.closest('tr')).id();
+  // pour résoudre pb modif DOM datatable responsive
+    let $tr = $elem.closest('tr');
+    if ($tr.hasClass('child')) {
+      $tr = $tr.prev();
+    }
+    let id = tableWines.row($tr).id();
+
     $.post('/vins/plus-bouteille', {id: id, plus: plusAction}, data => {
         $elem.closest('.bottles-quantity').html(data);
-        table.ajax.reload();
+        tableWines.ajax.reload();
     });
 }

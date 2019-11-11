@@ -161,16 +161,15 @@ class WineController extends AbstractController
     }
 
     /**
-     * @Route("/modifier", name="wine_edit")
+     * @Route("/modifier/{id}", name="wine_edit")
+     * @param Wine $wine
      * @param Request $request
      * @return JsonResponse|RedirectResponse
      */
-    public function edit(Request $request)
+    public function edit(Request $request, Wine $wine)
     {
-        $id = $request->request->get('id');
-        $wine = $this->wineRepository->find($id);
         $formWine = $this->createFormBuilder($wine)
-            ->setAction($this->generateUrl('wine_new'))
+            ->setAction($this->generateUrl('wine_edit', ['id' => $wine->getId()]))
             ->add('color', ChoiceType::class, [
                 'choices' => [
                     'rouge' => Wine::COLOR_RED,
@@ -218,7 +217,7 @@ class WineController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->flush();
 
-            return $this->redirectToRoute('wines_list');
+            return $this->redirectToRoute('historic');
         }
         $html = $this->renderView('modalEditWineContent.html.twig', [
             'formWine' => $formWine->createView()
