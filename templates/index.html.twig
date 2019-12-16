@@ -1,14 +1,21 @@
-{% extends 'layout.html.twig' %}
+{% extends 'base.html.twig' %}
 
-{% block content %}
-    <div class="row mt-2">
-        <div class="col-12">
-            <table id="table_bottles" class="table table-striped table-bordered w-100"></table>
-        </div>
-    </div>
+{% block body %}
+	<div class="d-flex flex-column align-items-center justify-content-center h-100">
+		<div class="btn btn-primary w-25 m-3 pointer">
+			<a href="/vins/liste">Ma cave à vin</a>
+		</div>
+
+		<div class="btn btn-primary w-25 m-3 pointer">
+			<a href="/vins/historique">Mes bouteilles bues</a>
+		</div>
+
+		<div class="btn btn-secondary w-25 m-3 pointer">
+			<a href="/logout">Me déconnecter</a>
+		</div>
+	</div>
 {% endblock %}
 
 {% block javascripts %}
     {{ parent() }}
-    <script src="{{ asset('js/wines.js') }}"></script>
 {% endblock %}

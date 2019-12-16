@@ -48,7 +48,7 @@ class WineController extends AbstractController
             $listYears[] = $year['year'];
         }
 
-        return $this->render('index.html.twig', [
+        return $this->render('wines.html.twig', [
             'years' => $listYears,
             'areas' => Wine::AREAS
         ]);

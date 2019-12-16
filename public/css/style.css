@@ -7593,7 +7593,8 @@ a.text-dark:hover, a.text-dark:focus {
 body {
   font-family: "Open Sans", sans-serif;
   background-image: url("/img/grapes.jpg");
-  background-repeat: no-repeat; }
+  background-repeat: no-repeat;
+  height: 100vh; }
 
 a {
   text-decoration: none;
