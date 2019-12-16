@@ -2,8 +2,9 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Repository\WineRepository;
 
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,7 +26,11 @@ class HomeController extends AbstractController
      */
     public function index()
     {
+        
+        $nbBottles = $this->getDoctrine()
+        ->getRepository('App:Wine')
+        ->countBottles();
 
-        return $this->render('index.html.twig');
+        return $this->render('index.html.twig', ['nbBottles' => $nbBottles]);
     }
 }

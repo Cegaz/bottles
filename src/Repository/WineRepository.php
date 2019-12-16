@@ -44,4 +44,12 @@ class WineRepository extends ServiceEntityRepository
         ->getQuery()
         ->execute();
     }
+
+    public function countBottles()
+    {
+        return $this->createQueryBuilder('w')
+        ->select('sum(w.nbBottles)')
+        ->getQuery()
+        ->getSingleScalarResult();
+    }
 }
