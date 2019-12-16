@@ -63,13 +63,14 @@ class WineController extends AbstractController
         $data = [];
 
         foreach ($wines as $wine) {
+            dump($wine->getComment());
             $data[] = [
                 'id' => $wine->getId(),
                 'color' => $wine->getColor(),
                 'origin' => $wine->getOrigin(),
                 'year' => $wine->getYear(),
                 'name' => $wine->getName(),
-                'comment' => $wine->getComment(),
+                'comment' => nl2br($wine->getComment()),
                 'dluo' => $wine->getDluo(),
                 'quantity' => $this->renderView('bottlesQuantity.html.twig', [
                     'nb' => $wine->getNbBottles() ?? 1,
