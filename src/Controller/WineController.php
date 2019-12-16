@@ -130,10 +130,6 @@ class WineController extends AbstractController
                 'placeholder' => '...',
                 'required' => false,
             ])
-            ->add('nbBottles', IntegerType::class, [
-                'label' => 'Quantité',
-                'attr' => ['min' => 0, 'value' => 1],
-            ])
             ->add('save', SubmitType::class, [
                 'label' => 'Enregistrer'
             ])
