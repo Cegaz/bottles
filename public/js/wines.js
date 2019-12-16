@@ -36,7 +36,6 @@ function plusMinusBottle($elem, plusAction) {
     let id = tableWines.row($tr).id();
 
     $.post('/vins/plus-bouteille', {id: id, plus: plusAction}, data => {
-        $elem.closest('.bottles-quantity').html(data);
         tableWines.ajax.reload();
     });
 }
