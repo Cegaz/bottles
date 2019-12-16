@@ -214,7 +214,7 @@ class WineController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->flush();
 
-            return $this->redirectToRoute('historic');
+            return $this->redirectToRoute('wines_list');
         }
         $html = $this->renderView('modalEditWineContent.html.twig', [
             'formWine' => $formWine->createView()
