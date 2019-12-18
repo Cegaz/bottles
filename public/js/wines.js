@@ -20,7 +20,7 @@ let tableWines = $('#table_bottles').DataTable({
        {data: 'color', title: 'couleur', name: 'color'},
        {data: 'origin', title: 'région', name: 'origin'},
        {data: 'year', title: 'millésime', name: 'year'},
-       {data: 'dluo', title: 'date limite'},
+       {data: 'dluo', title: 'date limite', name: 'dluo'},
        {data: 'comment', title: 'commentaire'},
        {data: 'rate', title: 'note'},
        {data: 'quantity', title: ''},

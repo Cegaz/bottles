@@ -1,22 +1,25 @@
 function applyFilters(table) {
   let area = $(".filter[name='area']").val();
-      let year = $(".filter[name='year']").val();
-      let $colors = $(".checkbox-checked");
+  let year = $(".filter[name='year']").val();
+  let dluo = $(".filter[name='dluo']").val();
+  let $colors = $(".checkbox-checked");
 
-      let colors = '';
-      $colors.each(function(index, elem) {
-        colors += $(elem).data('value') + '|';
-      });
-      colors = colors.slice(0,-1);
+  let colors = '';
+  $colors.each(function(index, elem) {
+    colors += $(elem).data('value') + '|';
+  });
+  colors = colors.slice(0,-1);
 
-      table
-          .columns('origin:name')
-          .search(area)
-          .columns('year:name')
-          .search(year)
-          .columns('color:name')
-          .search(colors, true, false)
-          .draw();
+  table
+      .columns('origin:name')
+      .search(area)
+      .columns('year:name')
+      .search(year)
+      .columns('dluo:name')
+      .search(dluo)
+      .columns('color:name')
+      .search(colors, true, false)
+      .draw();
 }
 
 function newWine() {

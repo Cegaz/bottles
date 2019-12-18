@@ -29,6 +29,16 @@ class WineRepository extends ServiceEntityRepository
             ->getScalarResult();
     }
 
+    public function getDistinctDluoYears()
+    {
+        return $this->createQueryBuilder('w')
+            ->select('w.dluo')
+            ->orderBy('w.dluo')
+            ->distinct()
+            ->getQuery()
+            ->getScalarResult();
+    }
+
     public function findNotEmpty()
     {
         return $this->createQueryBuilder('w')

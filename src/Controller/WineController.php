@@ -45,10 +45,19 @@ class WineController extends AbstractController
         $years = $this->wineRepository->getDistinctYears();
         $listYears = [];
         foreach ($years as $year) {
-            $listYears[] = $year['year'];
+            if ($year['year']) $listYears[] = $year['year'];
+        }
+
+        $dluoYears = $this->getDoctrine()
+        ->getRepository('App:Wine')
+        ->getDistinctDluoYears();
+        $listDluoYears = [];
+        foreach ($dluoYears as $dluoYear) {
+            if ($dluoYear['dluo']) $listDluoYears[] = $dluoYear['dluo'];
         }
 
         return $this->render('wines.html.twig', [
+            'dluoYears' => $listDluoYears,
             'years' => $listYears,
             'areas' => Wine::AREAS
         ]);
@@ -63,7 +72,6 @@ class WineController extends AbstractController
         $data = [];
 
         foreach ($wines as $wine) {
-            dump($wine->getComment());
             $data[] = [
                 'id' => $wine->getId(),
                 'color' => $wine->getColor(),
