@@ -89,6 +89,7 @@ class WineController extends AbstractController
                 'actions' => $this->renderView('actions.html.twig', [
                     'wineId' => $wine->getId()
                 ]),
+                'createdDate' => $wine->getCreatedDate() ? $wine->getCreatedDate()->format('Y-m-d/m/Y H:i:s') : ''
             ];
         }
         return new JsonResponse(['data' => $data]);
@@ -147,9 +148,11 @@ class WineController extends AbstractController
         $formWine->handleRequest($request);
 
         if ($formWine->isSubmitted() && $formWine->isValid()) {
-             $wine
+            $now = new \DateTime('now');
+            $wine
                  ->setNbBottles(1)
-                 ->setRate(0);
+                 ->setRate(0)
+                 ->setCreatedDate($now);
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($wine);

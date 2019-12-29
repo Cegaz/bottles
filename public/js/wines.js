@@ -8,7 +8,7 @@ let tableWines = $('#table_bottles').DataTable({
     language: {
        url: "/js/dataTableLanguage.json",
     },
-    order: [[4, "asc"]],
+    order: [[9, "desc"]],
     sorting: true,
     dom: 'lrtip',
     paging: false,
@@ -24,6 +24,11 @@ let tableWines = $('#table_bottles').DataTable({
        {data: 'comment', title: 'commentaire'},
        {data: 'rate', title: 'note'},
        {data: 'quantity', title: ''},
+       {data: 'createdDate', name: 'createdDate'}
+    ],
+    columnDefs: [
+      { orderable: false, targets: 0 },
+      { visible: false, targets: 9 }
     ]
  });
 

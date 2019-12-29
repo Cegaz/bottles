@@ -81,6 +81,11 @@ class Wine
      */
     private $nbBottles;
 
+    /**
+    * @ORM\Column(type="datetime", nullable=true)
+    */
+    private $createdDate;
+
 
     public function getId(): ?int
     {
@@ -179,6 +184,18 @@ class Wine
     public function setDluo(?int $dluo): self
     {
         $this->dluo = $dluo;
+
+        return $this;
+    }
+
+    public function getCreatedDate(): ?\DateTimeInterface
+    {
+        return $this->createdDate;
+    }
+
+    public function setCreatedDate(\DateTimeInterface $createdDate): self
+    {
+        $this->createdDate = $createdDate;
 
         return $this;
     }

@@ -6,34 +6,18 @@
 
     {% block navbar %}
     <div class="row bg-grey">
-        <div class="col-1 d-flex justify-content-around align-items-center">
+        <div class="col-2 d-flex justify-content-around align-items-center">
             <a href="/">
                 <i class="fas fa-home big-icon pointer"></i>
             </a>
-            {# <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-bars xx-large purple"></i>
-            </a>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">
-                    <span data-toggle="modal" data-target="#modalNewBottle"
-                          onclick="newWine()">Nouveau vin</span>
-                </a>
-
-                {% if app.request.attributes.get('_route') == 'historic' %}
-                    <a class="dropdown-item" href="/vins/liste">Vins à boire</a>
-                {% else %}
-                    <a class="dropdown-item" href="/vins/historique">Vins déjà bus</a>
-                {% endif %}
-            </div> #}
-        </div>
-        <div class="offset-1 col-8">
-            {% include 'filters.html.twig' %}
-        </div>
-        <div class="offset-1 col-1 mt-auto mb-auto">
-            <span class="text-white align-middle">{{ app.user.username }}</span><br>
             <a href="/logout">
                 <i class='fas fa-sign-out-alt big-icon'></i>
             </a>
+            <i class="fas fa-plus-square big-icon pointer" onclick="newWine()"
+            data-toggle="modal" data-target="#modalNewBottle"></i>
+        </div>
+        <div class="offset-2 col-8">
+            {% include 'filters.html.twig' %}
         </div>
     </div>
 
@@ -47,9 +31,4 @@
 
 </div>
 
-{% endblock %}
-
-{% block javascripts %}
-    {{ parent() }}
-    <script src="{{ asset('js/app.js') }}"></script>
 {% endblock %}

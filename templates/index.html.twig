@@ -3,7 +3,9 @@
 {% block body %}
 	<div class="d-flex flex-column align-items-center justify-content-center h-100">
 		<div class="btn btn-primary w-25 m-3 pointer">
-			<a href="/vins/ajouter">Ajouter une bouteille</a>
+			<span onclick="newWine()" data-toggle="modal" data-target="#modalNewBottle">
+            	Ajouter une bouteille
+            </span>
 		</div>
 
 		<div class="btn btn-primary w-25 m-3 pointer">
@@ -20,6 +22,8 @@
 			<a href="/logout">Me déconnecter</a>
 		</div>
 	</div>
+
+	{% include 'modalNewBottle.html.twig' %}
 {% endblock %}
 
 {% block javascripts %}
