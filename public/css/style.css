@@ -4,6 +4,7 @@
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+@import "//netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css";
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -7606,6 +7607,9 @@ a {
 .bold {
   font-weight: bold; }
 
+.font-awesome {
+  font-family: FontAwesome; }
+
 .bg-grey {
   background-color: #d1c6af; }
 
@@ -7642,6 +7646,8 @@ i.big-icon {
   display: flex;
   align-items: center;
   margin-bottom: 0; }
+.filters .search-box {
+  width: 200px; }
 
 table {
   background-color: #f2f0e9; }

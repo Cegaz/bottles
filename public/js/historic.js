@@ -1,5 +1,6 @@
 $(function() {
     initFilters(tableHistoric);
+    initSearchBox(tableHistoric);
 });
 
 let tableHistoric = $('#table_historic').DataTable({
@@ -9,10 +10,8 @@ let tableHistoric = $('#table_historic').DataTable({
        url: "/js/dataTableLanguage.json",
     },
     sorting: true,
-    dom: 'lrtip',
-    paging: false,
+    dom: 'rt',
     responsive: true,
-    info: false,
     columns: [
         {data: 'actions', title: ''},
         {data: 'name', title: 'vin'},

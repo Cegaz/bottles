@@ -1,5 +1,6 @@
 $(function() {
     initFilters(tableWines);
+    initSearchBox(tableWines);
 });
 
 let tableWines = $('#table_bottles').DataTable({
@@ -10,10 +11,8 @@ let tableWines = $('#table_bottles').DataTable({
     },
     order: [[9, "desc"]],
     sorting: true,
-    dom: 'lrtip',
-    paging: false,
+    dom: 'rt',
     responsive: true,
-    info: false,
     columns: [
        {data: 'actions', title: ''},
        {data: 'name', title: 'vin'},

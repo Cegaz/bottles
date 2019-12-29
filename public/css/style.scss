@@ -10,6 +10,7 @@ $theme-colors: (
 );
 
 @import '../../node_modules/bootstrap/scss/bootstrap';
+@import "//netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css";
 
 $regularFont: 'Open Sans', sans-serif;
 $funnyFont: 'Mansalva', cursive;
@@ -32,6 +33,10 @@ a {
 
 .bold {
   font-weight: bold;
+}
+
+.font-awesome {
+  font-family: FontAwesome;
 }
 
 //  COLORS
@@ -89,6 +94,9 @@ i {
     display: flex;
     align-items: center;
     margin-bottom: 0;
+  }
+  .search-box {
+    width: 200px;
   }
 }
 // TABLES
