@@ -1,3 +1,8 @@
+$(function() {
+  var isMobile = (window.innerWidth <= 800) && (window.innerHeight <= 600);
+  alert(isMobile ? 'mobile' : 'desktop');
+});
+
 function applyFilters(table) {
   let area = $(".filter[name='area']").val();
   let year = $(".filter[name='year']").val();
