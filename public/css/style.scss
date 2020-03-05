@@ -15,11 +15,17 @@ $theme-colors: (
 $regularFont: 'Open Sans', sans-serif;
 $funnyFont: 'Mansalva', cursive;
 
+//$breakpointMobile: 768px; //TODO CG
+$breakpointMobile: 1300px;
+
 body {
   font-family: $regularFont;
   background-image: url("/img/grapes.jpg");
   background-repeat: no-repeat;
   height: 100vh;
+  @media (max-width: $breakpointMobile) {
+    background-image: none;
+  }
 }
 
 a {
@@ -35,16 +41,15 @@ a {
   font-weight: bold;
 }
 
+.italic {
+  font-style: italic;
+}
+
 .font-awesome {
   font-family: FontAwesome;
 }
 
 //  COLORS
-
-.bg-grey {
-  background-color: $grey;
-}
-
 .dark-purple {
   color: $darkPurple;
 }
@@ -110,10 +115,21 @@ table {
 }
 
 // OTHER
+.wine-card {
+  margin: 1rem;
+}
+
 .login-card {
   width: 40%;
   margin: 10% auto auto;
   background-color: $grey;
   border-radius: 6px;
   padding: 8px;
+}
+
+#navbar {
+  @media (min-width: $breakpointMobile) {
+    background-color: $grey;
+  }
+
 }

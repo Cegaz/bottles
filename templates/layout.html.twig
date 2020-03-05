@@ -5,20 +5,8 @@
 <div class="container-fluid">
 
     {% block navbar %}
-    <div class="row bg-grey">
-        <div class="col-2 d-flex justify-content-around align-items-center">
-            <a href="/">
-                <i class="fas fa-home big-icon pointer"></i>
-            </a>
-            <a href="/logout">
-                <i class='fas fa-sign-out-alt big-icon'></i>
-            </a>
-            <i class="fas fa-plus-square big-icon pointer" onclick="newWine()"
-            data-toggle="modal" data-target="#modalNewBottle"></i>
-        </div>
-        <div class="offset-2 col-8">
-            {% include 'filters.html.twig' %}
-        </div>
+    <div class="row justify-content-between" id="navbar">
+{#        TODO CG Check desktop #}
     </div>
 
     {% include 'modalNewBottle.html.twig' %}

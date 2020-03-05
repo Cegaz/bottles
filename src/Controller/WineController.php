@@ -42,6 +42,7 @@ class WineController extends AbstractController
      */
     public function index()
     {
+        //TODO CG Utile ici ?
         $years = $this->wineRepository->getDistinctYears();
         $listYears = [];
         foreach ($years as $year) {
@@ -93,6 +94,20 @@ class WineController extends AbstractController
             ];
         }
         return new JsonResponse(['data' => $data]);
+    }
+
+    /**
+     * @Route("/mobile", name="wines_datatable")
+     */
+    public function winesForMobile() {
+        $wines = $this->wineRepository->findNotEmpty();
+
+        $html['list'] = $this->renderView('mobile/wines.html.twig', [
+            'wines' => $wines
+        ]);
+        $html['filters'] = $this->renderView('mobile/filters.html.twig');
+
+        return new JsonResponse($html);
     }
 
     /**

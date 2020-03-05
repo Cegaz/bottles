@@ -1,8 +1,3 @@
-$(function() {
-  var isMobile = (window.innerWidth <= 800) && (window.innerHeight <= 600);
-  alert(isMobile ? 'mobile' : 'desktop');
-});
-
 function applyFilters(table) {
   let area = $(".filter[name='area']").val();
   let year = $(".filter[name='year']").val();
@@ -40,17 +35,41 @@ function editWine(wineId) {
 }
 
 function initFilters(table) {
-    $('.filter').on('change', function() {
-        applyFilters(table);
-    });
+    if (isMobile()) {
+        $(".checkbox-color").on("click", function () {
+            $(this).toggleClass('checkbox-checked');
+            let $checkboxesChecked = $('.checkbox-checked');
+            let colors = [];
+            $checkboxesChecked.each(function() {
+                colors.push($(this).data('value'));
+            });
+            let selectorToHide = '.wine-card';
+            let selectorToDisplay = [];
+            colors.forEach((elem) => {
+                selectorToHide += '[data-color!="' + elem + '"]';
+                selectorToDisplay.push('[data-color="' + elem + '"]');
+            });
 
-    $(".checkbox-color").on("click", function (e) {
-        $(this).toggleClass('checkbox-checked');
-        let $checkbox = $(this).find('input[type="checkbox"]');
-        $checkbox.prop("checked",!$checkbox.prop("checked"));
-        e.preventDefault();
-        applyFilters(table);
-    });
+            if (colors.length > 0) {
+                $(selectorToHide).addClass('d-none');
+                $(selectorToDisplay.join(',')).removeClass('d-none');
+            } else {
+                $('.wine-card').removeClass('d-none');
+            }
+        });
+    } else {
+        $('.filter').on('change', function () {
+            applyFilters(table);
+        });
+
+        $(".checkbox-color").on("click", function (e) {
+            $(this).toggleClass('checkbox-checked');
+            let $checkbox = $(this).find('input[type="checkbox"]');
+            $checkbox.prop("checked", !$checkbox.prop("checked"));
+            e.preventDefault();
+            applyFilters(table);
+        });
+    }
 }
 
 function initSearchBox(table) {
@@ -78,4 +97,20 @@ function addRemoveStar($star, plusAction) {
         $star.closest('td').html(data);
         table.ajax.reload();
     });
+}
+
+function isMobile() {
+  const toMatch = [
+    /Android/i,
+    /webOS/i,
+    /iPhone/i,
+    /iPad/i,
+    /iPod/i,
+    /BlackBerry/i,
+    /Windows Phone/i
+  ];
+
+  return !toMatch.some((toMatchItem) => {
+    return navigator.userAgent.match(toMatchItem);
+  });
 }

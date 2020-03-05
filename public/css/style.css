@@ -7596,6 +7596,9 @@ body {
   background-image: url("/img/grapes.jpg");
   background-repeat: no-repeat;
   height: 100vh; }
+  @media (max-width: 1300px) {
+    body {
+      background-image: none; } }
 
 a {
   text-decoration: none;
@@ -7607,11 +7610,11 @@ a {
 .bold {
   font-weight: bold; }
 
+.italic {
+  font-style: italic; }
+
 .font-awesome {
   font-family: FontAwesome; }
-
-.bg-grey {
-  background-color: #d1c6af; }
 
 .dark-purple {
   color: #3f0e40; }
@@ -7654,11 +7657,18 @@ table {
   table > tbody td:first-child::before {
     background-color: #9a0f4a !important; }
 
+.wine-card {
+  margin: 1rem; }
+
 .login-card {
   width: 40%;
   margin: 10% auto auto;
   background-color: #d1c6af;
   border-radius: 6px;
   padding: 8px; }
+
+@media (min-width: 1300px) {
+  #navbar {
+    background-color: #d1c6af; } }
 
 /*# sourceMappingURL=style.css.map */
