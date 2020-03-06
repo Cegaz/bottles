@@ -15,8 +15,7 @@ $theme-colors: (
 $regularFont: 'Open Sans', sans-serif;
 $funnyFont: 'Mansalva', cursive;
 
-//$breakpointMobile: 768px; //TODO CG
-$breakpointMobile: 1300px;
+$breakpointMobile: 320px;
 
 body {
   font-family: $regularFont;

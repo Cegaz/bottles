@@ -60,7 +60,8 @@ class HomeController extends AbstractController
         }
 
         $isMobile = $request->get('isMobile');
-        $templateRepo = $isMobile ? 'mobile/' : '';
+        $templateRepo = ($isMobile == 'true') ? 'mobile/' : '';
+
         return $this->render($templateRepo . 'navbar.html.twig', [
             'dluoYears' => $listDluoYears,
             'years' => $listYears,

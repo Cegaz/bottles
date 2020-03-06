@@ -7596,7 +7596,7 @@ body {
   background-image: url("/img/grapes.jpg");
   background-repeat: no-repeat;
   height: 100vh; }
-  @media (max-width: 1300px) {
+  @media (max-width: 320px) {
     body {
       background-image: none; } }
 
@@ -7667,7 +7667,7 @@ table {
   border-radius: 6px;
   padding: 8px; }
 
-@media (min-width: 1300px) {
+@media (min-width: 320px) {
   #navbar {
     background-color: #d1c6af; } }
 

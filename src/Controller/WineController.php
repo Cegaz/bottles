@@ -42,26 +42,7 @@ class WineController extends AbstractController
      */
     public function index()
     {
-        //TODO CG Utile ici ?
-        $years = $this->wineRepository->getDistinctYears();
-        $listYears = [];
-        foreach ($years as $year) {
-            if ($year['year']) $listYears[] = $year['year'];
-        }
-
-        $dluoYears = $this->getDoctrine()
-        ->getRepository('App:Wine')
-        ->getDistinctDluoYears();
-        $listDluoYears = [];
-        foreach ($dluoYears as $dluoYear) {
-            if ($dluoYear['dluo']) $listDluoYears[] = $dluoYear['dluo'];
-        }
-
-        return $this->render('wines.html.twig', [
-            'dluoYears' => $listDluoYears,
-            'years' => $listYears,
-            'areas' => Wine::AREAS
-        ]);
+        return $this->render('wines.html.twig');
     }
 
     /**
@@ -97,7 +78,7 @@ class WineController extends AbstractController
     }
 
     /**
-     * @Route("/mobile", name="wines_datatable")
+     * @Route("/mobile", name="wines_datatable_mobile")
      */
     public function winesForMobile() {
         $wines = $this->wineRepository->findNotEmpty();

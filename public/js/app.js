@@ -110,7 +110,7 @@ function isMobile() {
     /Windows Phone/i
   ];
 
-  return !toMatch.some((toMatchItem) => {
+  return toMatch.some((toMatchItem) => {
     return navigator.userAgent.match(toMatchItem);
   });
 }
