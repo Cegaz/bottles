@@ -81,7 +81,7 @@ class WineController extends AbstractController
      * @Route("/mobile", name="wines_datatable_mobile")
      */
     public function winesForMobile() {
-        $wines = $this->wineRepository->findNotEmpty();
+        $wines = $this->wineRepository->findNotEmpty('dluo', 'asc');
 
         $html['list'] = $this->renderView('mobile/wines.html.twig', [
             'wines' => $wines

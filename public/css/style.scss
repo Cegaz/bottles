@@ -90,6 +90,9 @@ i {
   &.big-icon {
     font-size: 1.8rem;
   }
+  &.huge-icon {
+    font-size: 2.8rem;
+  }
 }
 
 // FILTERS
@@ -116,6 +119,11 @@ table {
 // OTHER
 .wine-card {
   margin: 1rem;
+  font-size: xx-large;
+}
+
+.card-title {
+  font-size: xx-large;
 }
 
 .login-card {

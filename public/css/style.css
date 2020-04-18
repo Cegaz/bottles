@@ -7644,6 +7644,8 @@ a {
 
 i.big-icon {
   font-size: 1.8rem; }
+i.huge-icon {
+  font-size: 2.8rem; }
 
 .filters .form-group {
   display: flex;
@@ -7658,7 +7660,11 @@ table {
     background-color: #9a0f4a !important; }
 
 .wine-card {
-  margin: 1rem; }
+  margin: 1rem;
+  font-size: xx-large; }
+
+.card-title {
+  font-size: xx-large; }
 
 .login-card {
   width: 40%;

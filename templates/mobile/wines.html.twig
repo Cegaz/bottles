@@ -6,12 +6,12 @@
 			{% set color = (wine.color == 'rouge') ? 'purple' : (wine.color == 'blanc' ? 'white' : 'pink') %}
 		  	<div class="d-flex align-items-center">
 		  		<span class="badge badge-secondary">{{ wine.nbBottles }}</span>
-		  		<i class='fas fa-wine-bottle {{ color }} big-icon pl-2'></i>
+		  		<i class='fas fa-wine-bottle {{ color }} huge-icon pl-2'></i>
 		  	</div>
 		</div>
 	    <h4 class="card-title">{{ wine.name }}</h4>
 	    <p class="card-text">{{ wine.comment }}</p>
-	    <p class="italic mb-0">à boire avant {{ wine.year }}</p>
+	    <p class="italic mb-0">à boire avant {{ wine.dluo }}</p>
 	  </div>
 	</div>
 {% endfor %}

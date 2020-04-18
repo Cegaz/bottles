@@ -39,12 +39,14 @@ class WineRepository extends ServiceEntityRepository
             ->getScalarResult();
     }
 
-    public function findNotEmpty()
+    public function findNotEmpty($attr = '', $order = 'asc')
     {
-        return $this->createQueryBuilder('w')
-        ->where('w.nbBottles > 0')
-        ->getQuery()
-        ->execute();
+        $query = $this->createQueryBuilder('w')
+            ->where('w.nbBottles > 0');
+
+        if ($attr) $query->orderBy('w.' . $attr, $order);
+
+        return $query->getQuery()->execute();
     }
 
     public function findEmpty()
