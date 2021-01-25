@@ -15,14 +15,14 @@ $theme-colors: (
 $regularFont: 'Open Sans', sans-serif;
 $funnyFont: 'Mansalva', cursive;
 
-$breakpointMobile: 320px;
+$breakpointMobile: 480px;
 
 body {
   font-family: $regularFont;
   background-image: url("/img/grapes.jpg");
   background-repeat: no-repeat;
   height: 100vh;
-  @media (max-width: $breakpointMobile) {
+  @media (max-device-width: $breakpointMobile) {
     background-image: none;
   }
 }

@@ -7596,7 +7596,7 @@ body {
   background-image: url("/img/grapes.jpg");
   background-repeat: no-repeat;
   height: 100vh; }
-  @media (max-width: 320px) {
+  @media (max-device-width: 480px) {
     body {
       background-image: none; } }
 
