@@ -71,17 +71,6 @@ function initFilters(table) {
         });
     }
 }
-
-function initSearchBox(table) {
-  $('.search-box').keyup(function() {
-    if (this.value.length == 0) {
-      $(this).addClass('font-awesome');
-    } else {
-      $(this).removeClass('font-awesome');
-    }
-    table.search(this.value).draw();
-  });
-}
   
 function addRemoveStar($star, plusAction) {
     let table = $star.closest('table').DataTable();

@@ -1,6 +1,5 @@
 $(function() {
     initFilters(tableHistoric);
-    initSearchBox(tableHistoric);
 });
 
 let tableHistoric = $('#table_historic').DataTable({

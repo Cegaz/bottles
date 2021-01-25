@@ -3,10 +3,6 @@ let tableWines;
 $(function() {
     $('#isMobile').val(isMobile);
 
-    if (!isMobile()) {
-        initSearchBox(tableWines);
-    }
-
     $.post('/get-navbar', {isMobile: isMobile()}, (resp) => {
         $('#navbar').html(resp);
         initFilters(tableWines);
@@ -39,7 +35,13 @@ if (!isMobile()) {
         columnDefs: [
             { orderable: false, targets: 0 },
             { visible: false, targets: 9 }
-        ]
+        ],
+        paging: false,
+        initComplete: function() {
+            $('.search-box').on('keyup', function() {
+                tableWines.search(this.value).draw();
+            });
+        }
     });
 } else {
     $.get('/vins/mobile', function(data) {
