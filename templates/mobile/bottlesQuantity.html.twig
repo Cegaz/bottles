@@ -1,0 +1,12 @@
+{% set color = (wine.color == 'rouge') ? 'purple' : (wine.color == 'blanc' ? 'white' : 'pink') %}
+
+<div class="d-flex flex-column align-items-center">
+    <div>
+        <span class="badge badge-secondary">{{ wine.nbBottles }}</span>
+        <i class='fas fa-wine-bottle {{ color }} huge-icon pl-2'></i>
+    </div>
+    <div>
+        <i class="fas fa-plus-square pointer" data-quantity="{{ wine.nbBottles }}" onclick="plusMinusBottle($(this), 1)"></i>
+        <i class="fas fa-minus-square pointer" data-quantity="{{ wine.nbBottles }}" onclick="plusMinusBottle($(this), 0)"></i>
+    </div>
+</div>

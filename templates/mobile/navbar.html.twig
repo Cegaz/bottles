@@ -1,28 +1,10 @@
 <div>
-    <p>
-        <a class="btn" data-toggle="collapse" href="#collapseMenu" role="button" aria-expanded="false" aria-controls="collapseMenu">
-            <i class="fas fa-bars big-icon pointer"></i>
-        </a>
-    </p>
-    <div class="collapse" id="collapseMenu">
-        <div>
-            <a href="/">
-                Accueil
-            </a>
-        </div>
-        <div>
-            <a href="#" onclick="newWine()" data-toggle="modal" data-target="#modalNewBottle">
-                Nouvelle bouteille
-            </a>
-        </div>
-
-    </div>
 </div>
 
 <div>
-    {% include 'mobile/filters.html.twig' %}
+    {# {% include 'mobile/filters.html.twig' %} #}
 </div>
 
-<div>
-    <span class="badge badge-secondary">{{ nbBottles }}</span>
+<div class="m-4">
+    <span class="badge badge-secondary xx-large">{{ nbBottles }}</span>
 </div>

@@ -1,17 +1,28 @@
-{% for wine in wines %}
-	<div class="card wine-card" data-color="{{ wine.color }}" data-dluo="{{ wine.dluo }}">
-	  <div class="card-body">
-	  	<div class="d-flex justify-content-between">
-		  	<h5 class="card-title btn btn-primary">{{ wine.origin }} {{ wine.year }}</h5>
-			{% set color = (wine.color == 'rouge') ? 'purple' : (wine.color == 'blanc' ? 'white' : 'pink') %}
-		  	<div class="d-flex align-items-center">
-		  		<span class="badge badge-secondary">{{ wine.nbBottles }}</span>
-		  		<i class='fas fa-wine-bottle {{ color }} huge-icon pl-2'></i>
-		  	</div>
-		</div>
-	    <h4 class="card-title">{{ wine.name }}</h4>
-	    <p class="card-text">{{ wine.comment }}</p>
-	    <p class="italic mb-0">à boire avant {{ wine.dluo }}</p>
-	  </div>
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+	<div id="wines-content">
+	    {% for wine in wines %}
+			<div class="card wine-card" data-color="{{ wine.color }}" data-dluo="{{ wine.dluo }}">
+    			<div class="card-body">
+				    <div class="d-flex justify-content-between">
+						<div>
+							<h5 class="card-title btn btn-primary">{{ wine.origin }} {{ wine.year }}</h5>
+        				</div>
+						<div class="card-quantity" data-id="{{ wine.id }}">
+							{% include 'mobile/bottlesQuantity.html.twig' %}
+						</div>
+					</div>
+    				<h4 class="card-title">{{ wine.name }}</h4>
+    				<p class="card-text">{{ wine.comment }}</p>
+			    	<p class="italic mb-0">à boire avant {{ wine.dluo }}</p>
+				</div>
+			</div>
+		{% endfor %}
 	</div>
-{% endfor %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/mobile/wines.js') }}"></script>
+{% endblock %}

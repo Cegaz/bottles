@@ -1,54 +1,45 @@
 let tableWines;
 
 $(function() {
-    $('#isMobile').val(isMobile);
-
-    $.post('/get-navbar', {isMobile: isMobile()}, (resp) => {
+    $.post('/get-navbar', (resp) => {
         $('#navbar').html(resp);
         initFilters(tableWines);
     });
 });
 
-if (!isMobile()) {
-    tableWines = $('#table_bottles').DataTable({
-        ajax: '/vins/datatable',
-        rowId: 'id',
-        language: {
-            url: "/js/dataTableLanguage.json",
-        },
-        order: [[9, "desc"]],
-        sorting: true,
-        dom: 'rt',
-        responsive: true,
-        columns: [
-            {data: 'actions', title: ''},
-            {data: 'name', title: 'vin'},
-            {data: 'color', title: 'couleur', name: 'color'},
-            {data: 'origin', title: 'région', name: 'origin'},
-            {data: 'year', title: 'millésime', name: 'year'},
-            {data: 'dluo', title: 'date limite', name: 'dluo'},
-            {data: 'comment', title: 'commentaire'},
-            {data: 'rate', title: 'note'},
-            {data: 'quantity', title: ''},
-            {data: 'createdDate', name: 'createdDate'}
-        ],
-        columnDefs: [
-            { orderable: false, targets: 0 },
-            { visible: false, targets: 9 }
-        ],
-        paging: false,
-        initComplete: function() {
-            $('.search-box').on('keyup', function() {
-                tableWines.search(this.value).draw();
-            });
-        }
-    });
-} else {
-    $.get('/vins/mobile', function(data) {
-        $('#wines-content').html(data.list);
-        $('#filters').html(data.filters);
-    });
-}
+tableWines = $('#table_bottles').DataTable({
+    ajax: '/vins/datatable',
+    rowId: 'id',
+    language: {
+        url: "/js/dataTableLanguage.json",
+    },
+    order: [[9, "desc"]],
+    sorting: true,
+    dom: 'rt',
+    responsive: true,
+    columns: [
+        {data: 'actions', title: ''},
+        {data: 'name', title: 'vin'},
+        {data: 'color', title: 'couleur', name: 'color'},
+        {data: 'origin', title: 'région', name: 'origin'},
+        {data: 'year', title: 'millésime', name: 'year'},
+        {data: 'dluo', title: 'date limite', name: 'dluo'},
+        {data: 'comment', title: 'commentaire'},
+        {data: 'rate', title: 'note'},
+        {data: 'quantity', title: ''},
+        {data: 'createdDate', name: 'createdDate'}
+    ],
+    columnDefs: [
+        { orderable: false, targets: 0 },
+        { visible: false, targets: 9 }
+    ],
+    paging: false,
+    initComplete: function() {
+        $('.search-box').on('keyup', function() {
+            tableWines.search(this.value).draw();
+        });
+    }
+});
 
 function plusMinusBottle($elem, plusAction) {
     // pour résoudre pb modif DOM datatable responsive

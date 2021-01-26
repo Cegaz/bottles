@@ -21,6 +21,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Validator\Constraints\Json;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use App\Service\DetectMobileDevice;
 
 /**
  * Class WineController
@@ -40,9 +41,22 @@ class WineController extends AbstractController
     /**
      * @Route("/liste", name="wines_list")
      */
-    public function index()
+    public function index(Request $request)
     {
-        return $this->render('wines.html.twig');
+        $wines = $this->wineRepository->findNotEmpty('dluo', 'asc');
+
+        $html['list'] = $this->renderView('mobile/wines.html.twig', [
+            'wines' => $wines
+        ]);
+        $html['filters'] = $this->renderView('mobile/filters.html.twig');
+
+        if (DetectMobileDevice::isMobile()) {
+            return $this->render('mobile/wines.html.twig', [
+                'wines' => $wines
+            ]);
+        } else {
+            return $this->render('wines.html.twig');
+        }
     }
 
     /**
@@ -275,9 +289,15 @@ class WineController extends AbstractController
             $em->flush();
         }
 
-        $html = $this->renderView('bottlesQuantity.html.twig', [
-            'nb' => $newQuantity,
-        ]);
+        if (DetectMobileDevice::isMobile()) {
+            $html = $this->renderView('mobile/bottlesQuantity.html.twig', [
+                'wine' => $wine,
+            ]);
+        } else {
+            $html = $this->renderView('bottlesQuantity.html.twig', [
+                'nb' => $newQuantity,
+            ]);
+        }
 
         return new JsonResponse($html);
     }

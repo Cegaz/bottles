@@ -7661,7 +7661,9 @@ table {
 
 .wine-card {
   margin: 1rem;
-  font-size: xx-large; }
+  font-size: xx-large; 
+  background-color: #f2f0e9;
+  border-radius: 16px;}
 
 .card-title {
   font-size: xx-large; }

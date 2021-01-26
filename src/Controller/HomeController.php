@@ -13,6 +13,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Validator\Constraints\Json;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use App\Service\DetectMobileDevice;
 
 /**
  * Class WineController
@@ -59,14 +60,20 @@ class HomeController extends AbstractController
             if ($dluoYear['dluo']) $listDluoYears[] = $dluoYear['dluo'];
         }
 
-        $isMobile = $request->get('isMobile');
-        $templateRepo = ($isMobile == 'true') ? 'mobile/' : '';
-
-        return $this->render($templateRepo . 'navbar.html.twig', [
-            'dluoYears' => $listDluoYears,
-            'years' => $listYears,
-            'areas' => Wine::AREAS,
-            'nbBottles' => $wineRepository->countBottles()
-        ]);
+        if (DetectMobileDevice::isMobile()) {        
+            return $this->render('mobile/navbar.html.twig', [
+                'dluoYears' => $listDluoYears,
+                'years' => $listYears,
+                'areas' => Wine::AREAS,
+                'nbBottles' => $wineRepository->countBottles()
+            ]);
+        } else {
+            return $this->render('navbar.html.twig', [
+                'dluoYears' => $listDluoYears,
+                'years' => $listYears,
+                'areas' => Wine::AREAS,
+                'nbBottles' => $wineRepository->countBottles()
+            ]);
+        }
     }
 }
