@@ -7622,14 +7622,30 @@ a {
 .purple {
   color: #9a0f4a; }
 
+.bg-purple {
+  background-color: #9a0f4a;
+  border: none; }
+
 .pink {
   color: lightpink; }
+
+.bg-pink {
+  background-color: lightpink;
+  border: none; }
 
 .white {
   color: #f2e5cb; }
 
+.bg-white {
+  background-color: #f2e5cb;
+  border: none;
+  color: #9a0f4a; }
+
 .xx-large {
   font-size: xx-large; }
+
+.xxx-large {
+  font-size: xxx-large; }
 
 .pointer {
   cursor: pointer; }

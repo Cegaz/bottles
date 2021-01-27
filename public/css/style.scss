@@ -57,17 +57,37 @@ a {
   color: $purple;
 }
 
+.bg-purple {
+  background-color: $purple;
+  border: none;
+}
+
 .pink {
   color: $pink;
+}
+
+.bg-pink {
+  background-color: $pink;
+  border: none;
 }
 
 .white {
   color: #f2e5cb;
 }
 
+.bg-white {
+  background-color: #f2e5cb;
+  border: none;
+  color: $purple;
+}
+
 //  SIZES
 .xx-large {
   font-size: xx-large;
+}
+
+.xxx-large {
+  font-size: xxx-large;
 }
 
 .pointer {
