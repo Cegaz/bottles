@@ -120,7 +120,7 @@ table {
 .wine-card {
   margin: 1rem;
   font-size: xx-large;
-  background-color: $grey;
+  background-color: $lightGrey;
 }
 
 .card-title {
@@ -129,10 +129,23 @@ table {
 
 .login-card {
   width: 40%;
+  @media (max-device-width: $breakpointMobile) {
+    width: 80%;
+    font-size: xx-large;
+    .form-control {
+      height: 4rem;
+      font-size: xx-large;
+    }
+  }
   margin: 10% auto auto;
   background-color: $grey;
   border-radius: 6px;
-  padding: 8px;
+  padding: 30px;
+  .btn {
+    @media (max-device-width: $breakpointMobile) {
+      font-size: xx-large;
+    }
+  }
 }
 
 #navbar {

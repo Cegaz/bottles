@@ -7661,9 +7661,8 @@ table {
 
 .wine-card {
   margin: 1rem;
-  font-size: xx-large; 
-  background-color: #f2f0e9;
-  border-radius: 16px;}
+  font-size: xx-large;
+  background-color: #f2f0e9; }
 
 .card-title {
   font-size: xx-large; }
@@ -7673,9 +7672,19 @@ table {
   margin: 10% auto auto;
   background-color: #d1c6af;
   border-radius: 6px;
-  padding: 8px; }
+  padding: 30px; }
+  @media (max-device-width: 480px) {
+    .login-card {
+      width: 80%;
+      font-size: xx-large; }
+      .login-card .form-control {
+        height: 4rem;
+        font-size: xx-large; } }
+  @media (max-device-width: 480px) {
+    .login-card .btn {
+      font-size: xx-large; } }
 
-@media (min-width: 320px) {
+@media (min-width: 480px) {
   #navbar {
     background-color: #d1c6af; } }
 
