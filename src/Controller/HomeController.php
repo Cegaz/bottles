@@ -26,14 +26,17 @@ class HomeController extends AbstractController
     /**
      * @Route("/", name="home")
      */
-    public function index()
+    public function index(DetectMobileDevice $detectMobileDevice)
     {
-        
-        $nbBottles = $this->getDoctrine()
-        ->getRepository('App:Wine')
-        ->countBottles();
-
-        return $this->render('index.html.twig', ['nbBottles' => $nbBottles]);
+        if ($detectMobileDevice->isMobile()) {
+            return $this->redirectToRoute('wines_list');
+        } else {
+            $nbBottles = $this->getDoctrine()
+                ->getRepository('App:Wine')
+                ->countBottles();
+    
+            return $this->render('index.html.twig', ['nbBottles' => $nbBottles]);
+        }
     }
 
     /**
