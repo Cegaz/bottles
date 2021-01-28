@@ -3,13 +3,16 @@
 {% block content %}
 	<div id="wines-content">
 	    {% for wine in wines %}
+			{% set color = (wine.color == 'rouge') ? 'bg-purple' : (wine.color == 'blanc' ? 'bg-white' : 'bg-pink') %}
+
 			<div class="card wine-card" data-color="{{ wine.color }}" data-dluo="{{ wine.dluo }}">
     			<div class="card-body">
 				    <div class="d-flex justify-content-between">
 						<div>
 							<h5 class="card-title btn btn-primary">{{ wine.origin }} {{ wine.year }}</h5>
+							<h5 class="card-title btn btn-primary {{ color }}">{{ wine.color }}</h5>
         				</div>
-						<div class="card-quantity" data-id="{{ wine.id }}">
+						<div class="card-quantity d-flex" data-id="{{ wine.id }}">
 							{% include 'mobile/bottlesQuantity.html.twig' %}
 						</div>
 					</div>
