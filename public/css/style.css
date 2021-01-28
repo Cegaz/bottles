@@ -9,7 +9,7 @@
   --blue: #007bff;
   --indigo: #6610f2;
   --purple: #9a0f4a;
-  --pink: lightpink;
+  --pink: #ee85b2;
   --red: #dc3545;
   --orange: #fd7e14;
   --yellow: #ffc107;
@@ -414,7 +414,7 @@ mark,
 
 code {
   font-size: 87.5%;
-  color: lightpink;
+  color: #ee85b2;
   word-break: break-word; }
   a > code {
     color: inherit; }
@@ -7627,14 +7627,14 @@ a {
   border: none; }
 
 .pink {
-  color: lightpink; }
+  color: #ee85b2; }
 
 .bg-pink {
-  background-color: lightpink;
+  background-color: #ee85b2;
   border: none; }
 
 .white {
-  color: #f2e5cb; }
+  color: #fff; }
 
 .bg-white {
   background-color: #f2e5cb;
@@ -7675,10 +7675,13 @@ table {
   table > tbody td:first-child::before {
     background-color: #9a0f4a !important; }
 
+@media (max-device-width: 480px) {
+  .modal-dialog {
+    max-width: 80%; } }
 .wine-card {
   margin: 1rem;
   font-size: xx-large;
-  background-color: #f2f0e9; }
+  background-color: #d1c6af; }
 
 .card-title {
   font-size: xx-large; }

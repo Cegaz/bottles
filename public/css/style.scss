@@ -2,7 +2,7 @@ $lightGrey: #f2f0e9;
 $grey: #d1c6af;
 $purple: #9a0f4a;
 $darkPurple: #3f0e40;
-$pink: lightpink;
+$pink: #ee85b2;
 
 $theme-colors: (
   "primary": $purple,
@@ -72,7 +72,7 @@ a {
 }
 
 .white {
-  color: #f2e5cb;
+  color: #fff;
 }
 
 .bg-white {
@@ -126,6 +126,7 @@ i {
     width: 200px;
   }
 }
+
 // TABLES
 table {
   background-color: $lightGrey;
@@ -136,11 +137,18 @@ table {
   }	
 }
 
+// MODALS
+@media (max-device-width: $breakpointMobile) {
+  .modal-dialog {
+    max-width: 80%;
+  }
+}
+
 // OTHER
 .wine-card {
   margin: 1rem;
   font-size: xx-large;
-  background-color: $lightGrey;
+  background-color: $grey;
 }
 
 .card-title {
@@ -172,5 +180,4 @@ table {
   @media (min-width: $breakpointMobile) {
     background-color: $grey;
   }
-
 }

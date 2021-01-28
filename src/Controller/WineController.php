@@ -108,7 +108,7 @@ class WineController extends AbstractController
     /**
      * @Route("/creer", name="wine_new")
      */
-    public function new(Request $request)
+    public function new(Request $request, DetectMobileDevice $detectMobileDevice)
     {
         $wine = new Wine();
 
@@ -171,7 +171,9 @@ class WineController extends AbstractController
             return $this->redirectToRoute('wines_list');
         }
 
-        $html = $this->renderView('modalNewBottleContent.html.twig', [
+        $template = $detectMobileDevice->isMobile() ? 'mobile/modalNewBottleContent.html.twig' : 'modalNewBottleContent.html.twig';
+
+        $html = $this->renderView($template, [
             'formWine' => $formWine->createView()
         ]);
 
