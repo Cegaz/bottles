@@ -7703,8 +7703,15 @@ table {
     .login-card .btn {
       font-size: xx-large; } }
 
-@media (min-width: 480px) {
-  #navbar {
-    background-color: #d1c6af; } }
+#mobile-navbar {
+  background-color: #d1c6af;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1;
+  border-bottom: 12px solid #fff; }
+
+#mobile-wines-content {
+  margin-top: 150px; }
 
 /*# sourceMappingURL=style.css.map */

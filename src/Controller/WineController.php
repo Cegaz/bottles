@@ -45,14 +45,19 @@ class WineController extends AbstractController
     {
         $wines = $this->wineRepository->findNotEmpty('dluo', 'asc');
 
-        $html['list'] = $this->renderView('mobile/wines.html.twig', [
-            'wines' => $wines
-        ]);
-        $html['filters'] = $this->renderView('mobile/filters.html.twig');
+        // $html['list'] = $this->renderView('wines.html.twig', [
+        //     'wines' => $wines
+        // ]);
+        // $html['filters'] = $this->renderView('mobile/filters.html.twig');
 
         if (DetectMobileDevice::isMobile()) {
+            $nbBottles = $this->getDoctrine()
+                ->getRepository('App:Wine')
+                ->countBottles();
+
             return $this->render('mobile/wines.html.twig', [
-                'wines' => $wines
+                'wines' => $wines,
+                'nbBottles' => $nbBottles
             ]);
         } else {
             return $this->render('wines.html.twig');

@@ -1,9 +1,8 @@
-{% extends 'layout.html.twig' %}
+{% extends 'mobile/layout.html.twig' %}
 
 {% block content %}
-	<div id="wines-content">
+	<div id="mobile-wines-content">
 	    {% for wine in wines %}
-			{# {% set color = (wine.color == 'rouge') ? 'bg-purple' : (wine.color == 'blanc' ? 'bg-white' : 'bg-pink') %} #}
 			{% set color = (wine.color == 'rouge') ? 'purple' : (wine.color == 'blanc' ? 'white' : 'pink') %}
 
 			<div class="card wine-card" data-color="{{ wine.color }}" data-dluo="{{ wine.dluo }}">
@@ -12,10 +11,7 @@
 						<div>
 							<h5 class="card-title btn btn-primary">{{ wine.origin }}</h5>
 							<h5 class="card-title btn btn-primary">{{ wine.year }}</h5>
-							{# <h5 class="card-title btn btn-primary {{ color }}">{{ wine.color }}</h5> #}
-							{# <h5> #}
 							<i class='fas fa-wine-bottle {{ color }} huge-icon'></i>
-							{# </h5> #}
         				</div>
 						<div class="card-quantity d-flex" data-id="{{ wine.id }}">
 							{% include 'mobile/bottlesQuantity.html.twig' %}

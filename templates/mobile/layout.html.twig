@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="container-fluid">
+
+    {% block navbar %}
+    
+        <div class="row justify-content-between" id="mobile-navbar">
+            <div>
+                <i class="fas fa-plus-square m-4 huge-icon pointer" onclick="newWine()"
+                    data-toggle="modal" data-target="#modalNewBottle"></i>
+                </div>
+
+                <div>
+                    {# {% include 'mobile/filters.html.twig' %} #}
+                </div>
+
+                <div class="m-4">
+                    <span class="badge badge-secondary xx-large">{{ nbBottles }}</span>
+                </div>
+            </div>
+        </div>
+
+        {% include 'modalNewBottle.html.twig' %}
+        {% include 'modalEditWine.html.twig' %}
+
+    {% endblock %}
+
+    {% block content %}
+    {% endblock %}
+
+</div>
+
+{% endblock %}
