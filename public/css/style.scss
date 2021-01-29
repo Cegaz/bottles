@@ -188,3 +188,16 @@ table {
 #mobile-wines-content {
   margin-top: 150px;
 }
+
+#modalNewBottle {
+  @media (max-device-width: $breakpointMobile) {
+    font-size: xx-large !important;
+    .form-control {
+      height: 4rem;
+      font-size: xx-large;
+    }
+    .btn {
+      font-size: xx-large;
+    }
+  }
+}

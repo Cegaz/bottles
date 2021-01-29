@@ -7714,4 +7714,13 @@ table {
 #mobile-wines-content {
   margin-top: 150px; }
 
+@media (max-device-width: 480px) {
+  #modalNewBottle {
+    font-size: xx-large !important; }
+    #modalNewBottle .form-control {
+      height: 4rem;
+      font-size: xx-large; }
+    #modalNewBottle .btn {
+      font-size: xx-large; } }
+
 /*# sourceMappingURL=style.css.map */

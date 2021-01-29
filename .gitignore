@@ -19,3 +19,6 @@
 ###< symfony/web-server-bundle ###
 
 .idea/
+
+public/css/.sass-cache/
+public/css/style.css.map
