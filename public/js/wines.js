@@ -17,6 +17,7 @@ tableWines = $('#table_bottles').DataTable({
     sorting: true,
     dom: 'rt',
     responsive: true,
+    pageLength: 100,
     columns: [
         {data: 'actions', title: ''},
         {data: 'name', title: 'vin'},
